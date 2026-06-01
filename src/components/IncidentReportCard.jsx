@@ -1,77 +1,29 @@
 import React from "react";
-import {
-    Card,
-    CardContent,
-    Typography
-} from "@mui/material";
+import { Card, CardContent, Typography, Chip, Divider } from "@mui/material";
 
-import Grid from "@mui/material/Grid";
-import Chip from "@mui/material/Chip";
-import Divider from "@mui/material/Divider";
-
-const IncidentReportCard = ({
-    report
-}) => {
-
+const IncidentReportCard = ({ report }) => {
     if (!report) return null;
 
     return (
-        <Card sx={{ mt: 4 }}>
+        <Card sx={{ mt: 4, borderRadius: 3 }}>
 
-           <CardContent>
+            <CardContent>
 
-               <Typography
-                   variant="h5"
-                   fontWeight="bold"
-               >
-                   Incident Report
-               </Typography>
+                <Typography variant="h5" fontWeight="bold">
+                    Incident Report
+                </Typography>
 
-               <Divider
-                   sx={{ my: 2 }}
-               />
+                <Divider sx={{ my: 2 }} />
 
-               <Grid
-                   container
-                   spacing={2}
-               >
+                <Chip label={report.incidentId} color="primary" sx={{ mb: 2 }} />
 
-                   <Grid size={12}>
-                       <Chip
-                           color="primary"
-                           label={
-                               report.incidentId
-                           }
-                       />
-                   </Grid>
+                <Typography fontWeight="bold">Impact Assessment</Typography>
+                <Typography sx={{ mb: 2 }}>{report.impactAssessment}</Typography>
 
-                   <Grid size={12}>
-                       <Typography
-                           fontWeight="bold"
-                       >
-                           Impact Assessment
-                       </Typography>
+                <Typography fontWeight="bold">Timestamp</Typography>
+                <Typography>{report.timestamp}</Typography>
 
-                       <Typography>
-                           {report.impactAssessment}
-                       </Typography>
-                   </Grid>
-
-                   <Grid size={12}>
-                       <Typography
-                           fontWeight="bold"
-                       >
-                           Generated At
-                       </Typography>
-
-                       <Typography>
-                           {report.timestamp}
-                       </Typography>
-                   </Grid>
-
-               </Grid>
-
-           </CardContent>
+            </CardContent>
 
         </Card>
     );
