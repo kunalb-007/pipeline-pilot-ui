@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: pipeline-pilot-ai
+
+github:
+  models:
+    token: ${GITHUB_TOKEN}
+
+ai:
+  model: gpt-4.1
